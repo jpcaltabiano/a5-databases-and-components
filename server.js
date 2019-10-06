@@ -32,7 +32,7 @@ const db = low(adapter);
 
 app.use(favicon(__dirname + '/src/img/favicon.ico'));
 app.use(lowercasePaths());
-app.use(serveStatic('src'));
+app.use(serveStatic('dist'));
 app.use(bodyParser.json());
 db.defaults({ users: [] }).write();
 
@@ -82,29 +82,20 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.get('/', function (req, res) {
-    res.sendFile(__dirname + '/src/html/login.html');
+    res.sendFile(__dirname + '/dist/login.html');
 })
 
 app.post('/login', passport.authenticate('local'), function(req, res) {
     res.json({status: true})
 })
 
-// app.post('/login', function(req, res, next) {
-//     passport.authenticate('local', function(err, user, info) {
-//         // console.log(info.message)
-//         // if (err) { return next(err) }
-//         // if (!user) { return res.json( { message: info.message }) }
-//         res.json({ message: info.message });
-//     })(req, res, next);
-// });
 
-app.get('/index', checkAuth, function (req, res) {
-    res.sendFile(__dirname + '/src/html/index.html');
+app.get('/main', checkAuth, function (req, res) {
+    res.sendFile(__dirname + '/dist/main.html');
 })
 
 app.post('/trips', checkAuth, function(req, res) {
     const user = db.get('users').find(__user => __user.username === req.user.username);
-    // let trips = user.get('trips').map('tripname').value();
     let trips = user.get('trips').value()
     let tripsjson = JSON.stringify(trips);
     res.json(tripsjson)

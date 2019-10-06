@@ -1,16 +1,18 @@
 {
-  "//1": "describes your app and its dependencies",
-  "//2": "https://docs.npmjs.com/files/package.json",
-  "//3": "updating this file will download and update your packages",
-  "name": "a3-jpcaltabiano",
-  "version": "0.0.1",
-  "description": "A simple Node app built on Express, instantly up and running.",
+  "name": "a5-databases-and-components",
+  "version": "0.1.0",
+  "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "node server.js",
-    "css": "npx tailwind build src/css/login-t.css -o src/css/login-styles.css && npx tailwind build src/css/index-t.css -o src/css/index-styles.css"
+    "start": "parcel src/html/login.html",
+    "build": "parcel build src/html/login.html src/html/main.html"
   },
+  "proxy": "http://localhost:3000/",
+  "license": "MIT",
   "dependencies": {
+    "parcel": "^1.12.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
     "express": "^4.16.4",
     "express-lowercase-paths": "^1.0.0",
     "express-session": "^1.16.2",
@@ -23,6 +25,29 @@
     "tailwindcss": "^1.1.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.6.2",
+    "@babel/plugin-proposal-class-properties": "^7.5.5",
+    "babel-preset-nano-react-app": "^0.1.0",
+    "parcel-bundler": "^1.12.3",
     "stylelint-config-recommended": "^2.2.0"
+  },
+  "babel": {
+    "presets": [
+      "nano-react-app"
+    ],
+    "plugins": [
+      [
+        "@babel/plugin-proposal-class-properties",
+        {
+          "loose": true
+        }
+      ],
+      [
+        "@babel/plugin-transform-react-jsx",
+        {
+          "pragmaFrag": "React.Fragment"
+        }
+      ]
+    ]
   }
 }
