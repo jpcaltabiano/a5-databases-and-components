@@ -135,6 +135,7 @@ app.post('/pay', checkAuth, function(req, res) {
             .assign({paid: req.body.paid})
             .write();
     }
+    res.end();
 })
 
 app.post('/gear', checkAuth, function(req, res) {
@@ -148,6 +149,7 @@ app.post('/gear', checkAuth, function(req, res) {
             .assign({gear: req.body.gear})
             .write();
     }
+    res.end();
 })
 
 app.get('/resultsData', checkAuth, function(req, res) {
