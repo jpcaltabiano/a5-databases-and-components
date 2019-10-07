@@ -1,34 +1,5 @@
-# nano-react-app-template
+## WPI Outing Club Trip Signup
 
-The template project for [nano-react-app](https://github.com/adrianmcli/nano-react-app).
+a5-jpcaltabiano.glitch.me
 
-- `npm start` — This will spawn a development server with a default port of `1234`.
-- `npm run build` — This will output a production build in the `dist` directory.
-
-## Custom port
-
-You can use the `-p` flag to specify a port for development. To do this, you can either run `npm start` with an additional flag:
-
-```
-npm start -- -p 3000
-```
-
-Or edit the `start` script directly:
-
-```
-parcel index.html -p 3000
-```
-
-## Adding styles
-
-You can use CSS files with simple ES2015 `import` statements in your Javascript:
-
-```js
-import "./index.css";
-```
-
-## Babel transforms
-
-The Babel preset [babel-preset-nano-react-app](https://github.com/adrianmcli/babel-preset-nano-react-app) and a small amount of configuration is used to support the same transforms that Create React App supports.
-
-The Babel configuration lives inside `package.json` and will override an external `.babelrc` file, so if you want to use `.babelrc` remember to delete the `babel` property inside `package.json`.
+I added React to my a3 project. In a3, I had an html page for login and for the main index. Here, I keep the same structure, with one html for login and one for main. I wrote two components, one to render the login page and the other to render the main page. I think using React enhances the project, but it would have been better to start from the ground up with React. I would have made components of finer granularity - each text input could be it's own component that accepts props, for example. But for this case it was just easier to keep larger chunks in components, especially because I already had the logic figured out. I think styling would be easier with React's styling or with Material UI, but I kept the styles I had from a3 in this case. One place where it hinders development is the actual server/hosting. In a serious production level React app, hosting requires a lot of special care, many Node libraries, and a lot of overhead. Here, I just built manually into the 'dist' folder, and I statically host that with my server. This is not the ideal preferred method for hosting React apps but for this application it works fine.
