@@ -60,7 +60,6 @@ passport.serializeUser((user, done) => done(null, user.username));
 
 passport.deserializeUser((username, done) => {
     const user = db.get('users').find(__user => __user.username === username).value();
-    console.log('deserializing: ', username);
 
     if (user !== undefined) {
         done(null, user);
@@ -161,6 +160,7 @@ app.get('/resultsData', checkAuth, function(req, res) {
 })
 
 app.get('/results', checkAuth, function(req, res) {
+    console.log(__dirname + '/src/html/results.html')
     res.sendFile(__dirname + '/src/html/results.html');
 })
 

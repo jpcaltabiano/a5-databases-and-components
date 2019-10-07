@@ -4,7 +4,7 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "parcel src/html/login.html",
+    "start": "parcel src/html/main.html",
     "build": "parcel build src/html/login.html src/html/main.html"
   },
   "proxy": "http://localhost:3000/",
